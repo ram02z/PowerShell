@@ -5,12 +5,14 @@ Import-Module posh-git
 $pure.PwdColor = '1;36'
 $pure.PromptColor = '1;32'
 $pure.BranchColor = '1;35'
+$pure.RemoteColor = '34'
 $pure.DirtyColor = '31'
 
 # Add branch icon
+# Inbuilt branch name is bugged on new git repos
 $pure.BranchFormatter = {
   param ($n)
-  ' ' + $n
+  ($n ? ' ' + (git branch --show-current) : '')
 }
 
 # Customise prompt
@@ -21,6 +23,8 @@ $pure.PrePrompt = {
     ($git ? 'on ' : ''),
     ($slow ? 'took ' : '')
 }
+
+# TODO: make custom pwd based on fish prompt
 
 # Vi mode not supported yet
 Set-PSReadLineOption -EditMode Emacs

@@ -1,4 +1,4 @@
-Install instructions
+## Install instructions
 
 ```
 Install-Module posh-git -Scope CurrentUser
