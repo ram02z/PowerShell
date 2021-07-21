@@ -18,10 +18,10 @@ $pure.BranchFormatter = {
 # Customise prompt
 $pure.PrePrompt = {
     param ($user, $cwd, $git, $slow)
-    "$user{0}$cwd {1}$git {2}$slow `n" -f
+    "$user{0}$cwd{1}$git{2}$slow `n" -f
     ($user ? ' ' : ''),
-    ($git ? 'on ' : ''),
-    ($slow ? 'took ' : '')
+    ($git ? ' on ' : ''),
+    ($slow ? ' took ' : '')
 }
 
 # TODO: make custom pwd based on fish prompt
